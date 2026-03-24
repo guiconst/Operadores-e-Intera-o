@@ -3,9 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercício 6 - Final</title>
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-    <body>
-        
-    </body>
+<body class="bg-gray-100">
+    <div class="container mx-auto p-4">
+        <h1 class="text-2xl font-bold mb-4">Aventura de Athena</h1>
+        <div class="mb-4">
+            <label for="nome" class="block text-sm font-medium text-gray-700">Nome</label>
+            <input type="text" id="nome" placeholder="Digite seu nome" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+        </div>
+        <div class="mb-4">
+            <label for="cosmo" class="block text-sm font-medium text-gray-700">Cosmo Inicial</label>
+            <input type="number" id="cosmo" placeholder="Digite seu cosmo inicial" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+        </div>
+        <button onclick="iniciar()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">Iniciar</button>
+    </div>
+</body>
+
+<script>
+    function iniciar() {
+        let nome = document.getElementById("nome").value;
+        let cosmo = +document.getElementById("cosmo").value;
+
+        if (confirm("Deseja sacrificar seu sentido para aumentar seu cosmo?")) {
+            cosmo *= 2;
+        }
+
+        let dano = 200;
+        cosmo -= dano;
+
+        let statusVida = cosmo > 0 ? "Vivo" : "Morto";
+        if (cosmo >= 1000 && statusVida === "Vivo") {
+            alert(Parabéns, ${nome}, você salvou Athena com ${cosmo} de cosmo restante!);
+        } else {
+            alert(Infelizmente, ${nome}, você não conseguiu salvar Athena. Cosmo restante: ${cosmo});
+        }
+    }
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto p-4">
+        <h1 class="text-2xl font-bold mb-4">Calculadora de Signo</h1>
+        <div class="mb-4">
+            <label for="dataNascimento" class="block text-sm font-medium text-gray-700">Data de Nascimento</label>
+            <input type="text" id="dataNascimento" placeholder="DD/MM" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+        </div>
+        <button onclick="calcularSigno()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">Calcular Signo</button>
+    </div>
+</body>
+
+<script>
+    function calcularSigno() {
+        let dataNascimento = document.getElementById("dataNascimento").value;
+        let [dia, mes] = dataNascimento.split("/").map(Number);
+        let signo = "";
+
+        if ((mes === 3 && dia >= 21) || (mes === 4 && dia <= 19)) {
+            signo = "Áries - Cavaleiro de Ouro: Mu de Áries. Poder: Manipulação de areia e teletransporte.";
+        } else if ((mes === 4 && dia >= 20) || (mes === 5 && dia <= 20)) {
+            signo = "Touro - Cavaleiro de Ouro: Aldebaran de Touro. Poder: Força sobre-humana e defesa impenetrável.";
+        } else if ((mes === 5 && dia >= 21) || (mes === 6 && dia <= 20)) {
+            signo = "Gêmeos - Cavaleiro de Ouro: Saga de Gêmeos. Poder: Ilusões e manipulação mental.";
+        } else if ((mes === 6 && dia >= 21) || (mes === 7 && dia <= 22)) {
+            signo = "Câncer - Cavaleiro de Ouro: Máscara da Morte de Câncer. Poder: Controle sobre a morte e o submundo.";
+        } else if ((mes === 7 && dia >= 23) || (mes === 8 && dia <= 22)) {
+            signo = "Leão - Cavaleiro de Ouro: Aiolia de Leão. Poder: Velocidade e ataques elétricos.";
+        } else if ((mes === 8 && dia >= 23) || (mes === 9 && dia <= 22)) {
+            signo = "Virgem - Cavaleiro de Ouro: Shaka de Virgem. Poder: Meditação profunda e controle sobre os sentidos.";
+        } else if ((mes === 9 && dia >= 23) || (mes === 10 && dia <= 22)) {
+            signo = "Libra - Cavaleiro de Ouro: Dohko de Libra. Poder: Sabedoria e controle sobre as correntes do tempo.";
+        } else if ((mes === 10 && dia >= 23) || (mes === 11 && dia <= 21)) {
+            signo = "Escorpião - Cavaleiro de Ouro: Milo de Escorpião. Poder: Agilidade e ataques venenosos.";
+        } else if ((mes === 11 && dia >= 22) || (mes === 12 && dia <= 21)) {
+            signo = "Sagitário - Cavaleiro de Ouro: Aiolos de Sagitário. Poder: Precisão e ataques de flechas de energia.";
+        } else if ((mes === 12 && dia >= 22) || (mes === 1 && dia <= 19)) {
+            signo = "Capricórnio - Cavaleiro de Ouro: Shura de Capricórnio. Poder: Golpes cortantes e resistência física.";
+        } else if ((mes === 1 && dia >= 20) || (mes === 2 && dia <= 18)) {
+            signo = "Aquário - Cavaleiro de Ouro: Camus de Aquário. Poder: Controle sobre o gelo e ataques congelantes.";
+        } else if ((mes === 2 && dia >= 19) || (mes === 3 && dia <= 20)) {
+            signo = "Peixes - Cavaleiro de Ouro: Afrodite de Peixes. Poder: Controle sobre as rosas venenosas e ilusões.";
+        } else {
+            signo = "Data de nascimento inválida. Por favor, insira no formato DD/MM.";
+        }
+        alert(signo);
+    }
+</script>
 </html>
