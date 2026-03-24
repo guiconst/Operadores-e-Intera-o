@@ -1,0 +1,2 @@
+cosmoBase = 100;
+console.log("Seiya possui um cosmo base de " + cosmoBase + ". Ao usar o Meteoro de Pégaso, seu cosmo base de " + cosmoBase + " é multiplicado por 5, resultando em: "+ (cosmoBase *= 5) +", e em seguida, ele sofre uma penalidade exaustiva de 50 pontos. Total: "+ (cosmoBase -= 50) +" ");

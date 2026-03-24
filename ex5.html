@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Batalha das 12 Casas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Batalha das 12 Casas</h1>
+    <button onclick="iniciar()">Iniciar Jornada</button>
+    <script>
+        function iniciar() {
+            let nome = prompt("Digite seu nome:");
+            let cosmo = Number(prompt("Digite seu cosmo inicial:"));
+
+            let sacrificio = confirm("Deseja sacrificar sentido para dobrar o cosmo?");
+            if (sacrificio) {
+                cosmo *= 2;
+            }
+            let statusVida = "Vivo";
+            for (let i = 1; i <= 12; i++) {
+                let dano = Math.floor(Math.random() * 150) + 50;
+                cosmo -= dano;
+                if (cosmo <= 0) {
+                    statusVida = "Morto";
+                    break;
+                }
+            }
+            let venceu = cosmo >= 1000 && statusVida === "Vivo";
+
+            if (venceu) {
+                alert("Parabéns, " + nome + "! Você salvou Athena com " + cosmo + " de cosmo restante!");
+            } else {
+                alert("Você falhou, " + nome + ". Cosmo final: " + cosmo + " | Status: " + statusVida);
+            }
+        }
+    </script>
+</body>
+</html>
